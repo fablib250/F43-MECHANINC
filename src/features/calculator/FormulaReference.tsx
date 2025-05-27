@@ -68,7 +68,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Horsepower Conversion', formula: '1 hp = 746 W', description: 'Horsepower to watts conversion' },
     { name: 'Efficiency', formula: 'Efficiency = (Useful Output Energy / Input Energy) × 100%', description: 'Mechanical or energy efficiency' }
   ]
-}
+},
 {
   id: 'momentum_impulse',
   name: 'Momentum and Impulse',
@@ -83,7 +83,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Change in Kinetic Energy', formula: 'ΔKE = KEₓ𝒇ᵢₙₐₗ − KEᵢₙᵢₜᵢₐₗ', description: 'Change in kinetic energy (check for inelastic losses)' },
     { name: 'Force from Momentum Change', formula: 'F_avg = (mv𝒇 − mvᵢ) / t', description: 'Force from momentum change over time' }
   ]
-}
+},
 {
   id: 'rotational_motion',
   name: 'Rotational Motion',
@@ -98,7 +98,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Period of Rotation', formula: 'T = 2π/ω', description: 'Period of rotation from angular velocity' },
     { name: 'Frequency of Rotation', formula: 'f = 1/T', description: 'Frequency of rotation' }
   ]
-}
+},
 {
   id: 'rotational_dynamics',
   name: 'Rotational Dynamics',
@@ -113,7 +113,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Parallel-Axis Theorem', formula: 'I_parallel = I_CM + Md²', description: 'Moment of inertia about parallel axis' },
     { name: 'Standard Moments of Inertia', formula: 'I_disk = ½MR², I_sphere = (2/5)MR²', description: 'Standard moments of inertia for symmetric bodies' }
   ]
-}
+},
 {
   id: 'equilibrium_elasticity',
   name: 'Equilibrium and Elasticity',
@@ -130,7 +130,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Shear Stress', formula: 'S = F / A', description: 'Force per unit area under shear' },
     { name: 'Shear Strain', formula: 'Δx = FL / (AS)', description: 'Lateral deformation under shear force with shear modulus' }
   ]
-}
+},
 {
   id: 'gravitation',
   name: 'Gravitation',
@@ -143,7 +143,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Total Orbital Energy', formula: 'E_total = KE + U = −GMm / (2r)', description: 'Total mechanical energy in circular orbit' },
     { name: 'Kepler’s Third Law (General)', formula: 'a³ ∝ T²', description: 'Relationship between orbit size and period' }
   ]
-}
+},
 {
   id: 'oscillations_shm',
   name: 'Oscillations and Simple Harmonic Motion (SHM)',
@@ -159,7 +159,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Kinetic Energy in SHM', formula: 'KE = ½mv²', description: 'Kinetic energy at any point during SHM' },
     { name: 'Potential Energy in SHM', formula: 'PE = ½kx²', description: 'Potential energy stored in spring at displacement x' }
   ]
-}
+},
 {
   id: 'mechanical_waves',
   name: 'Mechanical Waves',
@@ -173,7 +173,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Wave Intensity', formula: 'I = P / A', description: 'Intensity is power per unit area' },
     { name: 'Amplitude-Intensity Relation', formula: 'I ∝ A²', description: 'Intensity is proportional to the square of amplitude' }
   ]
-}
+},
 {
   id: 'kinetic_theory',
   name: 'Kinetic Theory',
@@ -186,7 +186,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Number of Moles', formula: 'n = N / N_A', description: 'Moles from number of particles' },
     { name: 'Gas Constant Relation', formula: 'R = N_A k_B', description: 'Gas constant relation' }
   ]
-}
+},
 {
   id: 'fluid_mechanics',
   name: 'Fluid Mechanics',
@@ -202,7 +202,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Viscosity', formula: 'η = (F/A) / (v/L)', description: 'Viscosity (fluid resistance to flow)' },
     { name: 'Reynolds Number', formula: 'Re = ρvL / η', description: 'Predicts flow type (laminar or turbulent)' }
   ]
-}
+},
 {
   id: 'oscillations',
   name: 'Oscillations',
@@ -218,7 +218,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Total Mechanical Energy in SHM', formula: 'E = (1/2)kA²', description: 'Total mechanical energy in SHM' },
     { name: 'Energy at Any Point in SHM', formula: 'E = (1/2)mv² + (1/2)kx²', description: 'Energy at any point in SHM' }
   ]
-}
+},
 {
   id: 'waves',
   name: 'Waves',
@@ -235,7 +235,7 @@ export const FormulaReference: React.FC = () => {
     { name: 'Standing Wave (Strings/Open Pipes)', formula: 'L = nλ / 2', description: 'For strings and open pipes' },
     { name: 'Standing Wave (Closed Pipe)', formula: 'L = (2n − 1)λ / 4', description: 'Harmonics in closed pipes' }
   ]
-}
+},
 {
   id: 'electrostatics',
   name: 'Electrostatics',
@@ -254,7 +254,7 @@ export const FormulaReference: React.FC = () => {
     { name: "Capacitors in Series", formula: '1 / C_eq = ∑ (1 / C_i)', description: "Capacitors in series" },
     { name: "Capacitors in Parallel", formula: 'C_eq = ∑ C_i', description: "Capacitors in parallel" }
   ]
-}
+},
 {
   id: 'electricCircuits',
   name: 'Electric Circuits',
@@ -274,7 +274,7 @@ export const FormulaReference: React.FC = () => {
     { name: "Charging Capacitor", formula: 'V(t) = V₀(1 − e^(−t/RC))', description: "Charging a capacitor" },
     { name: "Discharging Capacitor", formula: 'V(t) = V₀ e^(−t/RC)', description: "Discharging a capacitor" }
   ]
-}
+},
 {
   id: 'magnetism',
   name: 'Magnetism',
@@ -292,7 +292,7 @@ export const FormulaReference: React.FC = () => {
     { name: "Solenoid Field", formula: 'B = μ₀nI', description: "Magnetic field in a solenoid" },
     { name: "Magnetic Dipole Moment", formula: 'μ = NIA', description: "Magnetic dipole moment" }
   ]
-}
+},
 {
   id: 'electromagnetic-induction',
   name: 'Electromagnetic Induction',
@@ -308,7 +308,7 @@ export const FormulaReference: React.FC = () => {
     { name: "Current in RL Circuit (Growth)", formula: 'I(t) = (E/R)(1 − e^(−t/τ))', description: "Current in an RL circuit (growth)" },
     { name: "Current in RL Circuit (Decay)", formula: 'I(t) = I₀ e^(−t/τ)', description: "Current in an RL circuit (decay)" }
   ]
-}
+},
 {
   id: 'electromagnetic-waves',
   name: 'Electromagnetic Waves',
@@ -322,7 +322,7 @@ export const FormulaReference: React.FC = () => {
     { name: "Power Delivered", formula: 'P = IA', description: "Power delivered by a wave over area A" },
     { name: "Wavelength in Vacuum", formula: 'λ = c / f', description: "Wavelength of an EM wave in vacuum" }
   ]
-}
+},
 {
   id: 'geometrical-optics',
   name: 'Geometrical Optics',
@@ -336,7 +336,7 @@ export const FormulaReference: React.FC = () => {
     { name: "Lens Power", formula: 'P = 1 / f', description: "Optical power of a lens (diopters if f in meters)" },
     { name: "Total Magnification", formula: 'M = M₁ × M₂ × …', description: "Total magnification for multiple lenses" }
   ]
-}
+},
 {
   id: 'physical-optics',
   name: 'Physical Optics',
@@ -350,7 +350,7 @@ export const FormulaReference: React.FC = () => {
     { name: "Polarization Intensity", formula: 'I = I₀ cos²θ', description: "Intensity of polarized light through analyzer" },
     { name: "de Broglie Wavelength", formula: 'λ = h / p', description: "Wavelength of a particle (wave-particle duality)" }
   ]
-}
+},
 {
   id: 'modern-physics',
   name: 'Modern Physics',
@@ -367,7 +367,7 @@ export const FormulaReference: React.FC = () => {
     { name: "Length Contraction", formula: 'L = L₀ / γ', description: "Moving objects appear shorter" },
     { name: "Relativistic Energy", formula: 'E² = (pc)² + (m₀c²)²', description: "Total energy of a relativistic particle" }
   ]
-}
+},
 {
   id: 'nuclear-physics',
   name: 'Nuclear Physics',
@@ -380,7 +380,7 @@ export const FormulaReference: React.FC = () => {
     { name: "Energy Released in Reactions", formula: 'Q = (m_initial − m_final) ⋅ c²', description: "Energy released in nuclear reactions from mass difference" },
     { name: "Activity", formula: 'A = λ ⋅ N', description: "Radioactive decay rate" }
   ]
-}
+},
 {
   id: 'quantum-physics',
   name: 'Quantum Physics',
@@ -395,7 +395,7 @@ export const FormulaReference: React.FC = () => {
     { name: "de Broglie Wavelength", formula: 'λ = h / p', description: "Wavelength associated with a particle" },
     { name: "Photon Energy", formula: 'E = hf', description: "Energy of a photon related to its frequency" }
   ]
-}
+},
 {
   id: 'particle-physics',
   name: 'Particle Physics',
@@ -408,7 +408,7 @@ export const FormulaReference: React.FC = () => {
     { name: "Mass Defect", formula: 'Δm = m_initial − m_final', description: "Difference in mass before and after a particle decay or reaction" },
     { name: "Energy-Momentum Relation", formula: 'E² = (pc)² + (m₀c²)²', description: "Relativistic energy equation (repetition for context)" }
   ]
-}
+},
 
     {
       id: 'relativity',

@@ -5,6 +5,8 @@ import { CalculatorButton } from './CalculatorButton';
 import { FormulaReference } from './FormulaReference';
 import Plot from 'react-plotly.js';
 import { create, all } from 'mathjs';
+import 'katex/dist/katex.min.css';
+import { InlineMath, BlockMath } from 'react-katex';
 
 const math = create(all);
 
@@ -17,12 +19,13 @@ export const Calculator: React.FC = () => {
   const [plot2dExpr, setPlot2dExpr] = useState('');
   const [plot3dExpr, setPlot3dExpr] = useState('');
   const [plotType, setPlotType] = useState<'2d' | '3d' | null>(null);
+  const [angleMode, setAngleMode] = useState<'DEG' | 'RAD'>('DEG');
+  const [latexDisplay, setLatexDisplay] = useState('');
   
   const handleNumberInput = (num: string) => {
-    setDisplay(prev => {
-      if (prev === '0') return num;
-      return prev + num;
-    });
+    const newDisplay = display === '0' ? num : display + num;
+    setDisplay(newDisplay);
+    updateLatex(newDisplay);
   };
   
   const handleOperator = (op: string) => {
@@ -31,6 +34,19 @@ export const Calculator: React.FC = () => {
       return `${prev} ${display} ${op}`;
     });
     setDisplay('0');
+    updateLatex(op);
+  };
+
+  const updateLatex = (input: string) => {
+    let latex = input
+      .replace(/\*/g, '\\cdot ')
+      .replace(/\//g, '\\div ')
+      .replace(/sqrt/g, '\\sqrt')
+      .replace(/pi/g, '\\pi ')
+      .replace(/sin/g, '\\sin')
+      .replace(/cos/g, '\\cos')
+      .replace(/tan/g, '\\tan');
+    setLatexDisplay(latex);
   };
   
   const handleEquals = () => {
@@ -40,6 +56,7 @@ export const Calculator: React.FC = () => {
       setHistory(prev => [...prev, `${fullExpression} = ${result}`]);
       setDisplay(result.toString());
       setFormula('');
+      updateLatex(`${result}`);
     } catch {
       setDisplay('Error');
     }
@@ -48,6 +65,7 @@ export const Calculator: React.FC = () => {
   const handleClear = () => {
     setDisplay('0');
     setFormula('');
+    setLatexDisplay('');
   };
   
   const handleMemory = (action: 'add' | 'subtract' | 'recall' | 'clear') => {
@@ -63,6 +81,7 @@ export const Calculator: React.FC = () => {
       case 'recall':
         if (memoryValue !== null) {
           setDisplay(memoryValue.toString());
+          updateLatex(memoryValue.toString());
         }
         break;
       case 'clear':
@@ -76,15 +95,18 @@ export const Calculator: React.FC = () => {
       const currentValue = parseFloat(display);
       let result: number;
       
+      // Convert to radians if in DEG mode
+      const value = angleMode === 'DEG' ? (currentValue * Math.PI / 180) : currentValue;
+      
       switch (func) {
         case 'sin':
-          result = Math.sin(currentValue);
+          result = Math.sin(value);
           break;
         case 'cos':
-          result = Math.cos(currentValue);
+          result = Math.cos(value);
           break;
         case 'tan':
-          result = Math.tan(currentValue);
+          result = Math.tan(value);
           break;
         case 'log':
           result = Math.log10(currentValue);
@@ -116,6 +138,7 @@ export const Calculator: React.FC = () => {
       
       setDisplay(result.toString());
       setHistory(prev => [...prev, `${func}(${currentValue}) = ${result}`]);
+      updateLatex(`${func}(${currentValue}) = ${result}`);
     } catch (error) {
       setDisplay('Error');
     }
@@ -235,6 +258,19 @@ export const Calculator: React.FC = () => {
                 <div className="text-2xl text-cyan-300 font-bold text-right">
                   {display}
                 </div>
+                <div className="mt-2 text-cyan-400/80">
+                  <BlockMath>{latexDisplay || '0'}</BlockMath>
+                </div>
+              </div>
+              
+              {/* Angle Mode Toggle */}
+              <div className="mb-4">
+                <button
+                  onClick={() => setAngleMode(prev => prev === 'DEG' ? 'RAD' : 'DEG')}
+                  className="px-3 py-1 text-sm bg-cyan-900/30 text-cyan-300 rounded-md border border-cyan-700/50"
+                >
+                  {angleMode}
+                </button>
               </div>
               
               {/* Calculator Buttons */}
@@ -257,19 +293,17 @@ export const Calculator: React.FC = () => {
                 
                 {showScientific && (
                   <>
-                    {/* Scientific Functions Row 1 */}
+                    {/* Scientific Functions */}
                     <CalculatorButton label="sin" onClick={() => handleScientific('sin')} type="scientific" />
                     <CalculatorButton label="cos" onClick={() => handleScientific('cos')} type="scientific" />
                     <CalculatorButton label="tan" onClick={() => handleScientific('tan')} type="scientific" />
                     <CalculatorButton label="log" onClick={() => handleScientific('log')} type="scientific" />
                     
-                    {/* Scientific Functions Row 2 */}
                     <CalculatorButton label="ln" onClick={() => handleScientific('ln')} type="scientific" />
                     <CalculatorButton label="√" onClick={() => handleScientific('sqrt')} type="scientific" />
                     <CalculatorButton label="x²" onClick={() => handleScientific('square')} type="scientific" />
                     <CalculatorButton label="x³" onClick={() => handleScientific('cube')} type="scientific" />
                     
-                    {/* Scientific Functions Row 3 */}
                     <CalculatorButton label="1/x" onClick={() => handleScientific('inv')} type="scientific" />
                     <CalculatorButton label="n!" onClick={() => handleScientific('fact')} type="scientific" />
                     <CalculatorButton label="|x|" onClick={() => handleScientific('abs')} type="scientific" />
